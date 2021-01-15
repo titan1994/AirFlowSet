@@ -43,7 +43,7 @@ pip install 'apache-airflow [postgres]'
 pip install airflow-code-editor
 ```
 
-##________Правим airflow.cfg 
+##________Правим airflow.cfg - База данных для postgres 
 
 экзекьютор меняем на такой:
 ```
@@ -54,16 +54,31 @@ executor = LocalExecutor
 sql_alchemy_conn = postgresql+psycopg2://admin:admin@127.0.0.1:5432/airflow
 ```
 
-##________Правим webserver_config.py(раскомментируем как тут 4 строки)
+##________Правим airflow.cfg - Ключ шифрования (Если его нет). fernet_key
+Предварительно проверить нет ли там ключа. Если есть - можно пропустить этот танец
+Открываем python в консоли (помним что мы внутри окружения pipenv shell):
+
+```
+python
+from cryptography.fernet import Fernet
+key = Fernet.generate_key()
+print(key)
+exit(0)
+```
+
+Копируем ключ и вставляем в airflow.cfg 
+
+```
+fernet_key=key
+```
+
+##________Правим webserver_config.py(раскомментируем как тут 3 строки)
 ```
 # Uncomment to setup Full admin role name
 AUTH_ROLE_ADMIN = 'Admin'
 
 # Uncomment to setup Public role name, no authentication needed
 AUTH_ROLE_PUBLIC = 'Public'
-
-# Will allow user self registration
-AUTH_USER_REGISTRATION = True
 
 # The default user self registration role
 AUTH_USER_REGISTRATION_ROLE = "Public"
