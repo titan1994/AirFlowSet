@@ -43,6 +43,11 @@ pip install 'apache-airflow [postgres]'
 pip install airflow-code-editor
 ```
 
+Плагин чтобы победить Warning при проектировании дагов:
+```
+pip install apache-airflow['cncf.kubernetes']
+```
+
 ##________Правим airflow.cfg - База данных для postgres 
 
 экзекьютор меняем на такой:
