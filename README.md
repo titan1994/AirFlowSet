@@ -11,11 +11,11 @@ sudo snap install pycharm --classic
 sudo snap install sublime-text --classic
 
 ```
-
 Вырубить блокировщик экрана
 ```
 
-```gsettings set org.gnome.desktop.screensaver lock-enabled false
+gsettings set org.gnome.desktop.screensaver lock-enabled false
+```
 
 ##________Postgres для AirFlow:
 
@@ -166,3 +166,6 @@ https://michal.karzynski.pl/blog/2017/03/19/developing-workflows-with-apache-air
 
 Даже можно прикрутить отлдчик пайчарма через IPython. Вобщем - читаем ссылку
 
+##________Самый правильный пример структуры проекта
+
+https://www.astronomer.io/guides/airflow-importing-custom-hooks-operators
