@@ -2,6 +2,23 @@
 После установки по ссылке:
 
 https://airflow.apache.org/docs/apache-airflow/stable/installation.html
+А там нихрена не понятно... 
+Просто вобщем напишите в любой папке, куда упадут пипы 
+
+```
+pipenv install apache-airflow
+pipenv shell
+```
+
+Потом добавьте домашнюю директорию в path:
+```
+export AIRFLOW_HOME=~/airflow
+```
+
+Потом сразу инит базы, чтобы возникли все нужные файлы 
+```
+airflow db init
+```
 
 Нас ждут весёлые старты, описанные далее. Без этого не взлетит
 
@@ -169,3 +186,20 @@ https://michal.karzynski.pl/blog/2017/03/19/developing-workflows-with-apache-air
 ##________Самый правильный пример структуры проекта
 
 https://www.astronomer.io/guides/airflow-importing-custom-hooks-operators
+
+Жаль мы к нему пришли спустя время. Засела дрянь:
+```
+Broken DAG: [/home/uadmin/airflow/dags_ex/test_operators.py] Traceback (most recent call last):
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/uadmin/airflow/dags_ex/test_operators.py", line 3, in <module>
+    from airflow.operators.my_operators.py import HelloOperator
+ModuleNotFoundError: No module named 'airflow.operators.my_operators'
+```
+
+Не помог рестарт убунты, сервера, переинициализация. Ничего не помогает.
+Папку изменил уже давно в конфиге, но всё равно за дагами он лезет вот сюда:  
+/home/uadmin/airflow/dags_ex
+
+Будем переутсанавливать. 
+Остался последний варик - снести папку airflow и настроить всё заново. 
+Так же для верности - удалим и создадим заново таблицу в постгресе
