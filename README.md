@@ -117,3 +117,9 @@ pipenv shell
 airflow scheduler
 ```
 
+##________Продакшн запуск. Убираем примеры airflow.cfg
+Когда наигрались с примерами (они в большинстве своём просто поглазеть)
+load_examples в  airflow.cfg  поставить в значение False
+```
+load_examples = False
+```
