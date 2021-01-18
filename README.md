@@ -128,3 +128,7 @@ load_examples в  airflow.cfg  поставить в значение False
 ```
 load_examples = False
 ```
+
+##________Примеры плагинов, дагов и операторов
+
+https://michal.karzynski.pl/blog/2017/03/19/developing-workflows-with-apache-airflow/
