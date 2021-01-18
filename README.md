@@ -9,7 +9,13 @@ https://airflow.apache.org/docs/apache-airflow/stable/installation.html
 ```
 sudo snap install pycharm --classic
 sudo snap install sublime-text --classic
+
 ```
+
+Вырубить блокировщик экрана
+```
+
+```gsettings set org.gnome.desktop.screensaver lock-enabled false
 
 ##________Postgres для AirFlow:
 
